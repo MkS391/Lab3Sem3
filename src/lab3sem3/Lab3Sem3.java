@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package lab3sem3;
+// github 
 
 
-import java.awt.event.KeyEvent;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -67,6 +67,7 @@ public class Lab3Sem3 extends Application{
         gp.add(pwf, 1, 4); 
         
         Button btn1 = new Button("Register");
+        btn1.setDisable(true);
  
         
         Button btn2 = new Button("Clear");
@@ -75,6 +76,42 @@ public class Lab3Sem3 extends Application{
        
         final Text actiontarget = new Text();
         gp.add(actiontarget, 1, 6);
+        
+        nametf.setOnKeyReleased(e ->{
+            if(nametf.getText().isEmpty() || lnametf.getText().isEmpty() 
+                    || emailtf.getText().isEmpty() || pwf.getText().isEmpty()){
+                btn1.setDisable(true);
+            } else {
+                btn1.setDisable(false);
+            }
+        });
+        
+        lnametf.setOnKeyReleased(e ->{
+            if(nametf.getText().isEmpty() || lnametf.getText().isEmpty() 
+                    || emailtf.getText().isEmpty() || pwf.getText().isEmpty()){
+                btn1.setDisable(true);
+            } else {
+                btn1.setDisable(false);
+            }
+        });
+        
+        emailtf.setOnKeyReleased(e ->{
+            if(nametf.getText().isEmpty() || lnametf.getText().isEmpty() 
+                    || emailtf.getText().isEmpty() || pwf.getText().isEmpty()){
+                btn1.setDisable(true);
+            } else {
+                btn1.setDisable(false);
+            }
+        });
+        
+        pwf.setOnKeyReleased(e ->{
+            if(nametf.getText().isEmpty() || lnametf.getText().isEmpty() 
+                    || emailtf.getText().isEmpty() || pwf.getText().isEmpty()){
+                btn1.setDisable(true);
+            } else {
+                btn1.setDisable(false);
+            }
+        });
         
         btn1.setOnAction(new EventHandler<ActionEvent>(){   
             @Override
@@ -89,15 +126,6 @@ public class Lab3Sem3 extends Application{
                 }           
             }
         });
-        btn1.setOnKeyReleased(e ->{
-            if(nametf.getText().isEmpty() || lnametf.getText().isEmpty() 
-                    || emailtf.getText().isEmpty() || pwf.getText().isEmpty()){
-                btn1.setDisable(true);
-            } else {
-                btn1.setDisable(false);
-            }
-        });
-       
            
         btn2.setOnAction(new EventHandler<ActionEvent>(){      
             @Override
@@ -106,6 +134,7 @@ public class Lab3Sem3 extends Application{
                emailtf.clear();
                lnametf.clear();
                pwf.clear();
+               btn1.setDisable(true);
             }
         });
         
